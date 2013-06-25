@@ -50,7 +50,7 @@ syntax on
 set ruler
 
 map <> :NERDTree<cr>
-map <C-r> :TlistToggle<cr>
+map <C-[> :TlistToggle<cr>
 vmap <C-c> "+y
 set mouse=a
 autocmd VimEnter * NERDTree
