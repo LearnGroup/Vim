@@ -1,4 +1,4 @@
-"vundle setting
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
@@ -50,7 +50,7 @@ syntax on
 set ruler
 
 map <> :NERDTree<cr>
-map <C-[> :TlistToggle<cr>
+map <C-q> :TlistToggle<cr>
 vmap <C-c> "+y
 set mouse=a
 autocmd VimEnter * NERDTree
@@ -84,3 +84,9 @@ au BufEnter /* call LoadCscope()
 nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
+
+
+"personal abbr
+abbr tl TlistToggle
+abbr Wqa wqa
+
