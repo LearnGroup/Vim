@@ -81,6 +81,6 @@ au BufEnter /* call LoadCscope()
 
 
 "youcompleteme config
-nnoremap <C-\> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf = 0
