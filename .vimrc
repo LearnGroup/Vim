@@ -1,8 +1,8 @@
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
-Bundle 'taglist.vim'
+Bundle 'majutsushi/tagbar'
+Bundle 'dimasg/vim-mark'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'a.vim'
@@ -12,6 +12,7 @@ Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
+Bundle 'xieyu/pyclewn'
 
 "solarized theme
 syntax enable
@@ -49,8 +50,6 @@ filetype indent on
 syntax on
 set ruler
 
-map <> :NERDTree<cr>
-map <C-q> :TlistToggle<cr>
 vmap <C-c> "+y
 set mouse=a
 autocmd VimEnter * NERDTree
@@ -63,7 +62,6 @@ let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1 
 let g:miniBufExplMapCTabSwitchBufs = 1 
 let g:miniBufExplModSelTarget = 1
-let Tlist_Ctags_Cmd = '/usr/bin/ctags'
 
 "akirayu101 modify personal
 map <C-P> :bp<cr>
@@ -87,6 +85,32 @@ let g:ycm_confirm_extra_conf = 0
 
 
 "personal abbr
-abbr tl TlistToggle
-abbr Wqa wqa
+function! ToggleNERDTree()
+  let w:jumpbacktohere = 1
 
+  " Detect which plugins are open
+  if exists('t:NERDTreeBufName')
+    let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
+  else
+    let nerdtree_open = 0
+  endif
+
+  " Perform the appropriate action
+  if nerdtree_open
+    NERDTreeClose
+  else
+    NERDTree
+  endif
+
+  " Jump back to the original window
+  for window in range(1, winnr('$'))
+    execute window . 'wincmd w'
+    if exists('w:jumpbacktohere')
+      unlet w:jumpbacktohere
+      break
+    endif
+  endfor
+endfunction
+nnoremap <leader>\  :call ToggleNERDTree()<CR>
+abbr Wqa wqa
+nnoremap <silent> <F12> :TagbarToggle<CR>
