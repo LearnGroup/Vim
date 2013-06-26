@@ -13,7 +13,9 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
 Bundle 'xieyu/pyclewn'
-
+Bundle 'chazy/cscope_maps'
+Bundle 'vim-scripts/c-standard-functions-highlight'
+Bundle 'vim-jp/cpp-vim'
 "solarized theme
 syntax enable
 set background=dark
@@ -113,4 +115,5 @@ function! ToggleNERDTree()
 endfunction
 nnoremap <leader>\  :call ToggleNERDTree()<CR>
 abbr Wqa wqa
+abbr Qa qa
 nnoremap <silent> <F12> :TagbarToggle<CR>
