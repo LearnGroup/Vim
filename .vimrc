@@ -42,6 +42,8 @@ set wrap
 
 set nocompatible
 filetype off
+set hlsearch
+set incsearch
 
 filetype plugin indent on
 set noerrorbells
