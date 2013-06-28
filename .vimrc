@@ -15,6 +15,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'xieyu/pyclewn'
 Bundle 'chazy/cscope_maps'
 Bundle 'vim-scripts/c-standard-functions-highlight'
+Bundle 'kien/ctrlp.vim'
 Bundle 'vim-jp/cpp-vim'
 "solarized theme
 syntax enable
@@ -66,7 +67,6 @@ let g:miniBufExplMapCTabSwitchBufs = 1
 let g:miniBufExplModSelTarget = 1
 
 "akirayu101 modify personal
-map <C-P> :bp<cr>
 map <C-N> :bn<cr>
 function! LoadCscope()
   let db = findfile("cscope.out", ".;")
