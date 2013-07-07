@@ -6,24 +6,23 @@ Bundle 'dimasg/vim-mark'
 Bundle 'The-NERD-tree'
 Bundle 'The-NERD-Commenter'
 Bundle 'a.vim'
-Bundle 'altercation/vim-colors-solarized'
 Bundle 'minibufexpl.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/syntastic'
-Bundle 'xieyu/pyclewn'
 Bundle 'chazy/cscope_maps'
 Bundle 'vim-scripts/c-standard-functions-highlight'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-jp/cpp-vim'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'xieyu/pyclewn'
 "solarized theme
-syntax enable
+let g:solarized_termtrans = 1
 set background=dark
+" solarized options 
 colorscheme solarized
-set t_Co=256
-
-
+syntax on
 "general setting
 set fileencodings=ucs-bom,utf-8,cp936
 set helplang=cn
@@ -119,7 +118,7 @@ nnoremap <leader>\  :call ToggleNERDTree()<CR>
 abbr Wqa wqa
 abbr Qa qa
 abbr tty inferior-tty
-nnoremap <silent> <F12> :TagbarToggle<CR>
+nnoremap <leader>t :TagbarToggle<CR>
 " Window resizing mappings /*{{{*/
 nnoremap <S-Up> :normal <c-r>=Resize('+')<CR><CR>
 nnoremap <S-Down> :normal <c-r>=Resize('-')<CR><CR>
