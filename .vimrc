@@ -19,12 +19,12 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'xieyu/pyclewn'
 "solarized theme
 let g:solarized_termtrans = 1
-set background=dark
+set background=light
 " solarized options 
 colorscheme solarized
 syntax on
 "general setting
-set fileencodings=ucs-bom,utf-8,cp936
+set fileencodings=ucs-bom,utf-8,cp936,latin-1,gbk,gb18030
 set helplang=cn
 set clipboard=unnamedplus
 set shiftwidth=2
