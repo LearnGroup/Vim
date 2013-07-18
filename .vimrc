@@ -16,7 +16,6 @@ Bundle 'vim-scripts/c-standard-functions-highlight'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-jp/cpp-vim'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'xieyu/pyclewn'
 "solarized theme
 let g:solarized_termtrans = 1
 set background=light
@@ -26,7 +25,7 @@ syntax on
 "general setting
 set fileencodings=ucs-bom,utf-8,cp936,latin-1,gbk,gb18030
 set helplang=cn
-set clipboard=unnamedplus
+set clipboard=unnamed
 set shiftwidth=2
 set tabstop=2
 set expandtab
@@ -70,13 +69,13 @@ let g:miniBufExplModSelTarget = 1
 "akirayu101 modify personal
 map <C-N> :bn<cr>
 function! LoadCscope()
-  let db = findfile("cscope.out", ".;")
-  if (!empty(db))
-    let path = strpart(db, 0, match(db, "/cscope.out$"))
-    set nocscopeverbose " suppress 'duplicate connection' error
-    exe "cs add " . db . " " . path
-    set cscopeverbose
-  endif
+    let db = findfile("cscope.out", ".;")
+    if (!empty(db))
+        let path = strpart(db, 0, match(db, "/cscope.out$"))
+        set nocscopeverbose " suppress 'duplicate connection' error
+        exe "cs add " . db . " " . path
+        set cscopeverbose
+    endif
 endfunction
 au BufEnter /* call LoadCscope()
 
@@ -89,30 +88,30 @@ let g:ycm_confirm_extra_conf = 0
 
 "personal abbr
 function! ToggleNERDTree()
-  let w:jumpbacktohere = 1
+    let w:jumpbacktohere = 1
 
-  " Detect which plugins are open
-  if exists('t:NERDTreeBufName')
-    let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
-  else
-    let nerdtree_open = 0
-  endif
-
-  " Perform the appropriate action
-  if nerdtree_open
-    NERDTreeClose
-  else
-    NERDTree
-  endif
-
-  " Jump back to the original window
-  for window in range(1, winnr('$'))
-    execute window . 'wincmd w'
-    if exists('w:jumpbacktohere')
-      unlet w:jumpbacktohere
-      break
+    " Detect which plugins are open
+    if exists('t:NERDTreeBufName')
+        let nerdtree_open = bufwinnr(t:NERDTreeBufName) != -1
+    else
+        let nerdtree_open = 0
     endif
-  endfor
+
+    " Perform the appropriate action
+    if nerdtree_open
+        NERDTreeClose
+    else
+        NERDTree
+    endif
+
+    " Jump back to the original window
+    for window in range(1, winnr('$'))
+        execute window . 'wincmd w'
+        if exists('w:jumpbacktohere')
+            unlet w:jumpbacktohere
+            break
+        endif
+    endfor
 endfunction
 nnoremap <leader>\  :call ToggleNERDTree()<CR>
 abbr Wqa wqa
@@ -125,37 +124,47 @@ nnoremap <S-Down> :normal <c-r>=Resize('-')<CR><CR>
 nnoremap <S-Left> :normal <c-r>=Resize('<')<CR><CR>
 nnoremap <S-Right> :normal <c-r>=Resize('>')<CR><CR>
 function! Resize(dir)
-  let this = winnr()
-  if '+' == a:dir || '-' == a:dir
-    execute "normal \<c-w>k"
-    let up = winnr()
-    if up != this
-      execute "normal \<c-w>j"
-      let x = 'bottom'
-    else
-      let x = 'top'
+    let this = winnr()
+    if '+' == a:dir || '-' == a:dir
+        execute "normal \<c-w>k"
+        let up = winnr()
+        if up != this
+            execute "normal \<c-w>j"
+            let x = 'bottom'
+        else
+            let x = 'top'
+        endif
+    elseif '>' == a:dir || '<' == a:dir
+        execute "normal \<c-w>h"
+        let left = winnr()
+        if left != this
+            execute "normal \<c-w>l"
+            let x = 'right'
+        else
+            let x = 'left'
+        endif
     endif
-  elseif '>' == a:dir || '<' == a:dir
-    execute "normal \<c-w>h"
-    let left = winnr()
-    if left != this
-      execute "normal \<c-w>l"
-      let x = 'right'
+    if ('+' == a:dir && 'bottom' == x) || ('-' == a:dir && 'top' == x)
+        return "5\<c-v>\<c-w>+"
+    elseif ('-' == a:dir && 'bottom' == x) || ('+' == a:dir && 'top' == x)
+        return "5\<c-v>\<c-w>-"
+    elseif ('<' == a:dir && 'left' == x) || ('>' == a:dir && 'right' == x)
+        return "5\<c-v>\<c-w><"
+    elseif ('>' == a:dir && 'left' == x) || ('<' == a:dir && 'right' == x)
+        return "5\<c-v>\<c-w>>"
     else
-      let x = 'left'
+        echo "oops. check your ~/.vimrc"
+        return ""
     endif
-  endif
-  if ('+' == a:dir && 'bottom' == x) || ('-' == a:dir && 'top' == x)
-    return "5\<c-v>\<c-w>+"
-  elseif ('-' == a:dir && 'bottom' == x) || ('+' == a:dir && 'top' == x)
-    return "5\<c-v>\<c-w>-"
-  elseif ('<' == a:dir && 'left' == x) || ('>' == a:dir && 'right' == x)
-    return "5\<c-v>\<c-w><"
-  elseif ('>' == a:dir && 'left' == x) || ('<' == a:dir && 'right' == x)
-    return "5\<c-v>\<c-w>>"
-  else
-    echo "oops. check your ~/.vimrc"
-    return ""
-  endif
 endfunction
 " /*}}}*/ 
+set autoindent                " auto/smart indentation
+set cindent
+set preserveindent
+set copyindent
+set smarttab                  " tab and backspace are smart
+set tabstop=4                 " 4 spaces
+set softtabstop=4
+
+set shiftwidth=4
+set expandtab
