@@ -9,13 +9,16 @@ Bundle 'a.vim'
 Bundle 'minibufexpl.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'
-Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Valloric/YouCompleteMe'
+Bundle 'Rip-Rip/clang_complete'
+Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'chazy/cscope_maps'
 Bundle 'vim-scripts/c-standard-functions-highlight'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-jp/cpp-vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'fs111/pydoc.vim'
 "solarized theme
 let g:solarized_termtrans = 1
 set background=light
@@ -81,9 +84,9 @@ au BufEnter /* call LoadCscope()
 
 
 "youcompleteme config
-nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf = 0
+"nnoremap <C-]> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+"let g:ycm_confirm_extra_conf = 0
 
 
 "personal abbr
@@ -168,3 +171,12 @@ set softtabstop=4
 
 set shiftwidth=4
 set expandtab
+
+"clang complete
+let g:clang_complete_copen=1
+let g:clang_periodic_quickfix=1
+let g:clang_snippets=1
+let g:clang_close_preview=1
+let g:clang_use_library=1
+let g:clang_user_options='-stdlib=libc++ -std=c++11 -IIncludePath'
+"let g:clang_library_path='/usr/lib/libclang.dylib'
