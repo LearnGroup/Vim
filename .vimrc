@@ -19,6 +19,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'vim-jp/cpp-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'fs111/pydoc.vim'
+Bundle 'godlygeek/tabular'
 
 "solarized theme
 let g:solarized_termtrans = 1
@@ -180,7 +181,7 @@ set expandtab
 python << EOF
 def _my_function(some_arg=None):
     import vim
-    flags = []
+    flags = {}
     for line in vim.current.buffer:
         line = line.strip()
         if line.startswith("#include"):
@@ -189,7 +190,9 @@ def _my_function(some_arg=None):
             if begin == end:
                 begin = line.find("\"")
                 end = line.rfind("\"")
-            flags.append(line[begin+1:end])
+            flag = line[begin+1:end]
+            flagKey = flag.split("/")[-1]
+            flags[flagKey]=flag
     print flags
 
 EOF
