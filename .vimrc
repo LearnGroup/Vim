@@ -10,7 +10,6 @@ Bundle 'minibufexpl.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
-"Bundle 'Rip-Rip/clang_complete'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'chazy/cscope_maps'
@@ -20,13 +19,19 @@ Bundle 'vim-jp/cpp-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'fs111/pydoc.vim'
 Bundle 'godlygeek/tabular'
-
 "solarized theme
 let g:solarized_termtrans = 1
 set background=light
 colorscheme solarized
 syntax on
 
+=======
+"solarized theme
+let g:solarized_termtrans = 1
+set background=light
+" solarized options 
+colorscheme solarized
+syntax on
 "general setting
 set fileencodings=ucs-bom,utf-8,cp936,latin-1,gbk,gb18030
 set helplang=cn
