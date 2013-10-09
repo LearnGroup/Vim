@@ -10,6 +10,7 @@ Bundle 'minibufexpl.vim'
 "Bundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Bundle 'tpope/vim-fugitive'
 Bundle 'Valloric/YouCompleteMe'
+"Bundle 'Rip-Rip/clang_complete'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/syntastic'
 Bundle 'chazy/cscope_maps'
@@ -19,19 +20,15 @@ Bundle 'vim-jp/cpp-vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'fs111/pydoc.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'fsouza/go.vim'
+Bundle 'klen/python-mode'
+
 "solarized theme
 let g:solarized_termtrans = 1
 set background=light
 colorscheme solarized
 syntax on
 
-=======
-"solarized theme
-let g:solarized_termtrans = 1
-set background=light
-" solarized options 
-colorscheme solarized
-syntax on
 "general setting
 set fileencodings=ucs-bom,utf-8,cp936,latin-1,gbk,gb18030
 set helplang=cn
@@ -181,24 +178,34 @@ set expandtab
 "let g:clang_use_library=1
 "let g:clang_library_path='/usr/lib/libclang.dylib'
 
+"tabular config 
+nnoremap <leader>l:Tabularize /=<CR>
 
 
-python << EOF
-def _my_function(some_arg=None):
-    import vim
-    flags = {}
-    for line in vim.current.buffer:
-        line = line.strip()
-        if line.startswith("#include"):
-            begin = line.find("<")
-            end = line.find(">")
-            if begin == end:
-                begin = line.find("\"")
-                end = line.rfind("\"")
-            flag = line[begin+1:end]
-            flagKey = flag.split("/")[-1]
-            flags[flagKey]=flag
-    print flags
-
-EOF
-command -nargs=* MyCommand :python _my_function(<f-args>)
+let g:tagbar_type_go = {
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
