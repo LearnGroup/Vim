@@ -11,11 +11,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/vimproc.vim'
-Plugin 'lukerandall/haskellmode-vim'
 
 "haskell only
 Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
+Plugin 'lukerandall/haskellmode-vim'
 
 "golang only
 Plugin 'Blackrush/vim-gocode'
