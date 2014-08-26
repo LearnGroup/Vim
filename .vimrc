@@ -38,10 +38,8 @@ set incsearch
 
 set ruler
 set smarttab                  
-set tabstop=4               
-set softtabstop=4
-set shiftwidth=4
-set expandtab
+set noexpandtab
+set cursorline
 set mouse=a
 
 "ycm settings
