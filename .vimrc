@@ -1,20 +1,23 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
+"plugins
+call vundle#begin()
 Plugin 'dimasg/vim-mark'
 Plugin 'kien/ctrlp.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'lukerandall/haskellmode-vim'
 
-"for haskell only
+"haskell only
 Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
 
-"for golang only
+"golang only
 Plugin 'Blackrush/vim-gocode'
 
 call vundle#end()
@@ -74,3 +77,8 @@ let g:ycm_semantic_triggers = {
 \   'haskell' : ['.'],
 \ }
 let g:ycm_auto_trigger = 1
+
+
+"haskell only
+let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
+let g:haddock_browser = ""
