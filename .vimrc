@@ -1,5 +1,3 @@
-set nocompatible
-filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 
 "plugins
@@ -28,14 +26,7 @@ filetype indent on
 
 set completeopt+=preview,longest
 set fileencodings=ucs-bom,utf-8,cp936,latin-1,gbk,gb18030
-set helplang=cn
 set clipboard=unnamed
-set shiftwidth=2
-set tabstop=2
-set expandtab
-set nobackup
-set noswapfile
-set nowb
 set backspace=start,indent,eol
 set nu!
 set autoindent
@@ -45,13 +36,7 @@ set nocompatible
 set hlsearch
 set incsearch
 
-set noerrorbells
-set novisualbell
 set ruler
-set autoindent
-set cindent
-set preserveindent
-set copyindent
 set smarttab                  
 set tabstop=4               
 set softtabstop=4
@@ -82,4 +67,5 @@ let g:ycm_auto_trigger = 1
 "haskell only
 let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
 let g:haddock_browser = ""
+
 au BufEnter *.hs compiler ghc
