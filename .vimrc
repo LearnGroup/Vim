@@ -11,11 +11,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/vimproc.vim'
+Plugin 'lukerandall/haskellmode-vim'
 
 "haskell only
 Plugin 'eagletmt/neco-ghc'
 Plugin 'eagletmt/ghcmod-vim'
-Plugin 'lukerandall/haskellmode-vim'
 
 "golang only
 Plugin 'Blackrush/vim-gocode'
@@ -82,3 +82,4 @@ let g:ycm_auto_trigger = 1
 "haskell only
 let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
 let g:haddock_browser = ""
+au BufEnter *.hs compiler ghc
