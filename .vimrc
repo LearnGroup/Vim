@@ -43,6 +43,7 @@ set smartindent
 set tabstop=4
 set shiftwidth=4
 set noexpandtab
+
 "ycm settings
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
@@ -61,13 +62,13 @@ let g:ycm_semantic_triggers = {
 \   'haskell' : ['.'],
 \ }
 let g:ycm_auto_trigger = 1
-
+nmap <F8> :TagbarToggle<CR>
+nmap <F9> :NERDTreeToggle<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <C-R> :CtrlPBufTagAll<CR>
+let g:ctrlp_working_path_mode="rw"
 
 "haskell only
 let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
 let g:haddock_browser = ""
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let g:ctrlp_working_path_mode="rw"
 au BufEnter *.hs compiler ghc
