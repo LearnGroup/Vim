@@ -8,6 +8,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'scrooloose/nerdtree'
 
 "haskell only
 Plugin 'eagletmt/neco-ghc'
@@ -66,5 +67,6 @@ let g:ycm_auto_trigger = 1
 let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
 let g:haddock_browser = ""
 nmap <F8> :TagbarToggle<CR>
-
+nmap <F9> :NERDTreeToggle<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 au BufEnter *.hs compiler ghc
