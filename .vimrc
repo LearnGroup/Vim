@@ -61,12 +61,11 @@ let g:ycm_semantic_triggers = {
 \   'haskell' : ['.'],
 \ }
 let g:ycm_auto_trigger = 1
-
+nmap <F9> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "haskell only
 let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
 let g:haddock_browser = ""
-nmap <F8> :TagbarToggle<CR>
-nmap <F9> :NERDTreeToggle<CR>
-nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
 au BufEnter *.hs compiler ghc
