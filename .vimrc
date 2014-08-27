@@ -42,7 +42,7 @@ set mouse=a
 set smartindent
 set tabstop=4
 set shiftwidth=4
-set expandtab
+set noexpandtab
 "ycm settings
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
