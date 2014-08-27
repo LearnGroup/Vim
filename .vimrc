@@ -29,8 +29,6 @@ set fileencodings=ucs-bom,utf-8,cp936,latin-1,gbk,gb18030
 set clipboard=unnamed
 set backspace=start,indent,eol
 set nu!
-set autoindent
-set smartindent
 set wrap
 set nocompatible
 set hlsearch
@@ -38,10 +36,13 @@ set incsearch
 
 set ruler
 set smarttab                  
-set noexpandtab
 set cursorline
 set mouse=a
 
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
 "ycm settings
 
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
