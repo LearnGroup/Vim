@@ -9,6 +9,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Shougo/vimproc.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
+Plugin 'fholgado/minibufexpl.vim'
 
 "haskell only
 Plugin 'eagletmt/neco-ghc'
@@ -38,6 +39,8 @@ set ruler
 set smarttab                  
 set cursorline
 set mouse=a
+set selectmode=mouse
+set ttymouse=xterm2
 
 set smartindent
 set tabstop=4
@@ -45,7 +48,6 @@ set shiftwidth=4
 set noexpandtab
 
 "ycm settings
-
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_semantic_triggers = {
@@ -65,8 +67,16 @@ let g:ycm_auto_trigger = 1
 nmap <F8> :TagbarToggle<CR>
 nmap <F9> :NERDTreeToggle<CR>
 nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"CtrlP setting
 nnoremap <C-R> :CtrlPBufTagAll<CR>
 let g:ctrlp_working_path_mode="rw"
+
+"minibuf setting
+let g:miniBufExplMapWindowNavVim = 1 
+let g:miniBufExplMapWindowNavArrows = 1 
+let g:miniBufExplMapCTabSwitchBufs = 1 
+let g:miniBufExplModSelTarget = 1 
 
 "haskell only
 let g:haddock_docdir = "/usr/share/doc/ghc-doc/html"
