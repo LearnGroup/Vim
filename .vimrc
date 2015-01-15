@@ -1,3 +1,4 @@
+set nocompatible              " be iMproved, required
 set rtp+=~/.vim/bundle/Vundle.vim
 
 "plugins
